@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="wrapper col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+    <row>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-2">ユーザー</th>
+          <th class="col-md-2">未読の件数</th>
+          <th class="col-md-4">最新の未読のメッセージ</th>
+          <th class="col-md-4">受信日時</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @conversations.each do |conversation| %>
+          <% if conversation.target_user(current_user).present? %>
+          <tr>
+            <td>
+              <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+            </td>
+            <%if conversation.unread_message(current_user).count > 0 %>
+              <td><%= conversation.unread_message(current_user).count %>件</td>
+              <td><%= conversation.unread_message(current_user).last.body.truncate(10) %></td>
+              <td><%= conversation.unread_message(current_user).last.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+            <% else %>
+              <td></td>
+              <td></td>
+              <td></td>
+            <% end %>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </row>
+  </div>
+</div>

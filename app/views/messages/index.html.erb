@@ -1,0 +1,56 @@
+<script>
+  $(window).on('turbolinks:load', function() {
+      $("html,body").animate({scrollTop:$('#nmf').offset().top});
+  });
+</script>
+
+<div id="message" class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+
+    <h1 class="sticky"><%= @conversation.target_user(current_user).name %>さんとのメッセージ</h1>
+    <% if @over_ten %>
+      <%= link_to '以前のメッセージ', '?m=all' %>
+    <% end %>
+
+    <div class="line-bc">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <% user = User.find(message.user_id) %>
+          <%if user.id != current_user.id %>
+            <div class="balloon6">
+              <div class="faceicon"><%= profile_img(user) %></div>
+              <div class="chatting">
+                <div class="says">
+                  <p><%= message.body %></p>
+                  <p><%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <div class="chatting">
+              <div class="mycomment">
+                <p><%= message.body %></p>
+                <p><%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+              </div>
+            </div>
+
+          <% end %>
+          <!--/③右コメント終-->
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+      <p class="flash"><%= notice %></p>
+
+      <div id="nmf" class="field">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+        <%= f.text_field :recipient_id, value: @conversation.target_user(current_user).id, type: "hidden"  %>
+      <div>
+        <%= f.submit "メッセージを送る", class: "btn btn-primary btn-block"%>
+      </div>
+    <% end %>
+  </div>
+</div>

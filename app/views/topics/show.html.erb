@@ -1,0 +1,28 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+    <div class="child row">
+      <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+        <h1 class="left">トピック</h1>
+        <div class="topic-text">
+          <p class="left"><strong><%= t("topic.title") %></strong></p>
+          <p class="left"><%= @topic.title %></p>
+          <p class="left"><strong><%= t("topic.content") %></strong></p>
+          <p class="left"><%= @topic.content %></p>
+          <p><%= image_tag @topic.image.url  if @topic.image? %></p>
+          <p class="right">
+            <strong>作成日時:</strong>
+            <%= @topic.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+          </p>
+        </div>
+        <% if current_user.id == @topic.user_id %>
+          <p class="right"><%= link_to '編集', edit_topic_path(@topic), class: "btn btn-primary btn-large" %></p>
+        <% end %>
+        <h1 class="left">コメント</h1>
+        <div id="comments_area">
+          <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+        </div>
+        <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
+        <%= link_to '戻る', topics_path, class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+</div>

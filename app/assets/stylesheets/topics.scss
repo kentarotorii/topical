@@ -1,0 +1,47 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+    margin-bottom: 74px;
+    padding: 20px 20px 20px 35px;
+    .row {
+        border-bottom: 1px solid #fff;
+        padding: 20px;
+        text-align: left;
+        word-wrap: break-word;
+    }
+}
+
+input[type="submit"].btn-block{
+    margin: 15px 0;
+}
+
+.container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 85px;
+
+}
+
+.topic_author img{
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 0.5em;
+  object-fit: cover;
+}
+
+.bottom{
+  vertical-align: bottom;
+}
+.filefield{
+  margin-bottom: 0.5em;
+}
+.topic-text{
+  border: 1px solid #fff;
+  background-color: rgba(255,255,255,0.2);
+  margin-bottom: 5px;
+  padding: 5px;
+}

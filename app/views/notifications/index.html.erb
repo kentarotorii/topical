@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+    <h2>未読または今週のお知らせ</h2><br>
+    <row>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-2">状態</th>
+          <th class="col-md-2">差出人</th>
+          <th class="col-md-3">トピック</th>
+          <th class="col-md-3">コメント</th>
+          <th class="col-md-2">日時</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @notifications.each do |notification| %>
+          <tr>
+            <% if notification.read == true %>
+              <td><%= link_to "既読", topic_path(notification.comment.topic, notification_id: notification.id)%></td>
+            <% else %>
+              <td><%= link_to "未読", topic_path(notification.comment.topic, notification_id: notification.id), class: "unread"%></td>
+            <% end %>
+
+            <td><%= notification.comment.user.try(:name) %></td>
+            <td><%= notification.comment.topic.title.truncate(10) %></td>
+            <td><%= notification.comment.content.truncate(10) %></td>
+            <td><%= posted_time(notification.created_at) %></p></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </row>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+<div class="child row">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+      <div class="row">
+        <div class="col-md-5 col-md-offset-0 col-sm-5 col-sm-offset-0">
+          <p class="left"><strong>氏名</strong></p>
+          <p class="left"><%= @user.name %></p>
+          <p class="left"><strong>email</strong></p>
+          <p class="left"><%= @user.email %></p>
+        </div>
+        <div class="col-md-7 col-md-offset-0 col-sm-7 col-sm-offset-0">
+          <p class="left users"><%= profile_img(@user) %></p>
+        </div>
+      </div>
+      <hr>
+      <p class="left"><strong>フォロワー</strong></p>
+      <% @followers.each do |follower| %>
+        <p class="topic_author left"><%= profile_img(follower) %><span><%= follower.name %>,<%= follower.email %></span></p>
+      <% end %>
+      <hr>
+      <p class="left"><strong>フォローイング</strong></p>
+      <% @followed_users.each do |followed_user| %>
+        <p class="topic_author left"><%= profile_img(followed_user) %><span><%= followed_user.name %>,<%= followed_user.email %></span></p>
+      <% end %>
+
+
+  </div>
+</div>
+</div>

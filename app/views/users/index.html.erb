@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>ユーザー</h2>
+  <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+      <div class="col-md-4 col-sm-4 col-xs-6 ">
+          <div class="users">
+            <p><%= profile_img(user) %></p>
+            <%= link_to user.name, user %>
+            <div class="message_icon"><%= link_to "", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'btn fa fa-envelope-o',:title => "メッセージ"%>
+              <% if @messages.where(user_id: user.id, recipient_id: current_user.id, read: false).count > 0 %>
+                <div class="unread_message_number"><%= @messages.where(user_id: user.id, recipient_id: current_user.id, read: false).count %></div>
+              <% end %>
+            </div>
+          </div>
+          <%= render partial: 'follow_form', locals: { user: user } if signed_in?   %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

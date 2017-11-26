@@ -1,0 +1,95 @@
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.line-bc {
+  padding: 10px 10px;
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+}
+
+/*以下、②左側のコメント*/
+.balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 40px;
+}
+
+.balloon6 .faceicon img{
+    width: 100%;
+    height: auto;
+    border-radius: 35%;
+}
+.balloon6 .chatting {
+    width: 100%;
+    text-align: left;
+}
+.says {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0 50px;
+    padding: 10px;
+    max-width: 350px;
+    border-radius: 12px;
+    background: #edf1ee;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -ms-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+.says p {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+/*以下、③右側の緑コメント*/
+.mycomment {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px 10px 0;
+    padding: 8px;
+    max-width: 350px;
+    border-radius: 12px;
+    background: #F2BCAA;
+}
+
+.mycomment :after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #F2BCAA;
+    -ms-transform: rotate(-35deg);
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+.mycomment p {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 90px;
+  z-index: 8888;
+}

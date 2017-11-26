@@ -1,0 +1,25 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.users img{
+  margin-top: 3rem;
+  height:  15rem;
+  object-fit: cover;
+}
+.message_icon{
+  position: relative;
+  display: inline-block;
+}
+.unread_message_number{
+  position: absolute;
+  top: 0;
+  right: -0.75em;
+  color: white;
+  background-color: orange;
+  height: 1.5em;
+  width: 1.5em;
+  font-size: 0.9em;
+  border-radius: 50%;
+  display: table;
+  vertical-align: bottom;
+}

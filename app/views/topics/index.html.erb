@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+        <p class="flash"><%= notice %></p>
+        <h1>トピック一覧</h1>
+        <%= link_to "トピックを作成する", new_topic_path, class: 'btn btn-primary' %>
+        <% @topics.each do |topic| %>
+            <div class="row">
+                <%= link_to topic_path(topic) do %>
+                  <h4><strong><%= topic.title.truncate(20) %></strong></h4>
+                <% end %>
+                <p><%= topic.content.truncate(20) %></p>
+                <p><%= image_tag topic.image.url  if topic.image? %></p>
+                <div class="col-md-9 col-md-offset-0 col-sm-9 col-sm-offset-0" style="padding-left:0px;">
+                  <p  class="topic_author" style="float: left"><%= profile_img(topic.user) %><%= topic.user.name %>（<%= topic.created_at.strftime("%Y年%m月%d日 %H時%M分") %>）</p>
+                </div>
+                <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0">
+                  <% if topic.user_id == current_user.id %>
+                    <%= link_to "", edit_topic_path(topic.id), class: 'btn fa fa-pencil-square-o',:title => "編集"%>
+                    <%= link_to "", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn fa fa-trash',:title => "削除" %>
+                  <% end %>
+                </div>
+            </div>
+        <% end %>
+
+        <%= paginate(@topics) %>
+    </div>
+</div>

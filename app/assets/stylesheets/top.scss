@@ -1,0 +1,274 @@
+// Place all the styles related to the Top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+:root {
+  --bar-color: rgba(0, 0, 0, 0.6);
+}
+
+header {
+    width: 100%;
+    height: 54px;
+    display: table;
+}
+
+.navbar-default {
+    border: 0;
+}
+.navbar {
+  width: 100%;
+  background-color: var(--bar-color);
+  height: 40px;
+  z-index: 9999;
+  position: fixed;
+  border-radius: 0px;
+}
+.navbar-default {
+    .navbar-brand {
+        color: #ddd;
+        &:hover {
+            color: white;
+        }
+    }
+    .navbar-nav > li > a {
+        color: #ddd;
+        &:hover, &:focus {
+            color: white;
+        }
+    }
+    @media (max-width: 767px) {
+      .navbar-nav > li > a {
+        background-color: rgba(0,0,0,0.2);
+        &:hover {
+            background-color: rgba(0,0,0,0.4);
+        }
+        &:focus {
+            background-color: rgba(0,0,0,0.2);
+        }
+      }
+      .dropdown {
+          background-color: transparent;
+          &:hover, &:focus {
+              background-color: rgba(0,0,0,0.4);
+          }
+      }
+      .dropdown.open {
+          background-color: rgba(0,0,0,0.2);
+          &:hover, &:focus {
+              background-color: rgba(0,0,0,0.2);
+          }
+      }
+      .dropdown-menu > li{
+          background-color: transparent;
+          &:hover, &:focus {
+              background-color: rgba(0,0,0,0.4);
+          }
+      }
+    }
+    .navbar-nav > .open > a {
+        background-color: transparent;
+        color: white;
+        &:hover, &:focus {
+            background-color: transparent;
+            color: white;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ddd;
+        text-align: center;
+        &:hover, &:focus {
+            color: white;
+        }
+    }
+    .navbar-default .navbar-toggle {
+        background-color: transparent;
+        &:hover, &:focus {
+            background-color: transparent;
+        }
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  text-align: center;
+
+  background: image-url('blurred-background-4');
+
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+
+.main-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main-header h1{
+    color: #efecec;
+    text-shadow: 3px 3px 10px #333333;
+    font-size: 60px;
+    line-height: 50px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.sub-title{
+    color: black;
+    font-size: 16px;
+}
+.about {
+    background-color: white;
+    color: #333;
+    padding: 80px;
+}
+
+.function {
+    background-color: #e9e9e9;
+    padding: 80px;
+    padding-bottom: 185px;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--bar-color);
+    padding: 20px 0 10px 0;
+    color: white;
+    margin: auto;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+}
+
+.flash {
+  color: blue;
+  padding-top: 10px;
+}
+
+.field .form-control{
+    margin-bottom: 15px;
+}
+.counts{
+  margin-left: 3px;
+}
+
+.btn.fa{
+  padding: 5px 5px;
+  color: black;
+  font-size: 20px;
+}
+
+.btn.fa:hover{
+  color: white;
+}
+
+.btn-primary{
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  filter:brightness(85%);
+}
+
+.btn-warning{
+  background-color: rgba(100, 30, 100, 0.3);
+  border: none;
+}
+
+.btn-warning:hover{
+  background-color: rgba(100, 30, 100, 0.4);
+  border: none;
+   filter:brightness(85%);
+}
+
+.btn-danger{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.btn-danger:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  filter:brightness(85%);
+}
+
+.alert-success{
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+a{
+  color: blue;
+}
+a:hover{
+  color: white;
+}
+
+.btn-top {
+  display: table-cell;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow:3px 3px 10px rgba(0, 0, 0, 0.2);
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+  z-index: 20;
+  vertical-align: middle;
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+    filter:brightness(85%);
+  }
+  a {
+    display: block;
+    color: white;
+    line-height: 60px;
+    text-decoration: none;
+  }
+}
+
+.btn-bottom {
+  display: table-cell;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow:3px 3px 10px rgba(0, 0, 0, 0.2);
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 20;
+  vertical-align: middle;
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+    filter:brightness(85%);
+  }
+  a {
+    display: block;
+    color: white;
+    line-height: 60px;
+    text-decoration: none;
+  }
+}

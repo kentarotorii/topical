@@ -1,0 +1,8 @@
+ja:
+  topic_list: "ブログ一覧"
+  new_topic: "新規投稿"
+  edit_topic: "編集"
+  user_name: "ユーザー名"
+  topic:
+    title: "件名"
+    content: "本文"
